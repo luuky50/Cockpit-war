@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform firePoint;
+    public GameObject bulletPreFab;
+
+    public float bulletForce = 50f;
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Fire1")) {
+            Shoot();
+        }
+    }
+
+    void Shoot() {
         
     }
 }
