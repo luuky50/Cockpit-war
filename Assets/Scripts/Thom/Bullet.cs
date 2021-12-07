@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Plane 2")
+        if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlaneHealthManagement>().HurtEnemy(damageToGive);
             Destroy(gameObject);

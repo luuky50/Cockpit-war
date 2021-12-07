@@ -7,18 +7,23 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPreFab;
 
-    public float bulletForce = 30f;
+    public float bulletForce = 25f;
+    public float fireSpeed = 0.15f;
+    public float canFire = 1f;
     
 
     // Update is called once per frame
     void Update()
     {
         PlaneInfo planeInfo = GetComponent<PlaneInfo>();
-        if (!planeInfo.isPlayer2 && Input.GetKeyDown(KeyCode.W)) {
-            Shoot();
-        } else if (planeInfo.isPlayer2 && Input.GetKeyDown(KeyCode.UpArrow))
+        if (!planeInfo.isPlayer2 && Input.GetKey(KeyCode.W) && Time.time > canFire)
         {
             Shoot();
+            canFire = Time.time + fireSpeed;
+        } else if (planeInfo.isPlayer2 && Input.GetKey(KeyCode.UpArrow) && Time.time > canFire)
+        {
+            Shoot();
+            canFire = Time.time + fireSpeed;
         }
     }
 
