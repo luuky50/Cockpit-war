@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane1HealthManagement : MonoBehaviour
+public enum GameMode
 {
+    DeathMatch,
+    SuddenDeath,
+}
+public class GameManager : MonoBehaviour
+{
+    GameMode currentGameMode = new GameMode();
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+
 
     // Update is called once per frame
     void Update()
