@@ -28,7 +28,7 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
-        if(power)
+        //if(power)
     }
     // Update is call1ed once per frame
     void Update()
