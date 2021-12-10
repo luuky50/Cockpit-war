@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6009084091084362787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,3 +210,5 @@ MonoBehaviour:
   firePoint: {fileID: 6009084090727614280}
   bulletPreFab: {fileID: 1166344686138826771, guid: c1490c8551fa50445b74dda265961498, type: 3}
   bulletForce: 20
+  fireSpeed: 0.1
+  canFire: 1
