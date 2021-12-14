@@ -5,11 +5,12 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
+    public Transform firePoint2;
     public GameObject bulletPreFab;
 
-    public float bulletForce = 25f;
-    public float fireSpeed = 0.15f;
-    public float canFire = 1f;
+    public float bulletForce;
+    public float fireSpeed;
+    public float canFire;
     
 
     // Update is called once per frame
@@ -31,7 +32,11 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPreFab, firePoint.position, firePoint.rotation);
         Rigidbody2D rigidbody2D = bullet.GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-       
+
+        GameObject bullet2 = Instantiate(bulletPreFab, firePoint2.position, firePoint2.rotation);
+        Rigidbody2D rigidbody2D2 = bullet2.GetComponent<Rigidbody2D>();
+        rigidbody2D2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
+
     }
 }
 
