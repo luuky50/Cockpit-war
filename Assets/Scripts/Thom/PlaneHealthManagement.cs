@@ -7,6 +7,7 @@ public class PlaneHealthManagement : MonoBehaviour
     public int health;
     [SerializeField]
     private int currentHealth;
+    public Transform respawnPoint;
 
     void Start()
     {
@@ -18,7 +19,9 @@ public class PlaneHealthManagement : MonoBehaviour
     {
         if (currentHealth<=0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            currentHealth = 10;
+            gameObject.transform.position = respawnPoint.transform.position;
         }
     }
 
