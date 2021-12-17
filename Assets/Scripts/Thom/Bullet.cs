@@ -18,12 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0)
-        {
-
-            Destroy(gameObject);
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -31,6 +26,10 @@ public class Bullet : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlaneHealthManagement>().HurtEnemy(damageToGive);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Border")
+        {
             Destroy(gameObject);
         }
     }
