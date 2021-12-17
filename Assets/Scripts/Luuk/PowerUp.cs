@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Power
+{
+    Speed,
+    RapidFire,
+    Shield,
+    Turning
+}
+
 public class PowerUp : MonoBehaviour
 {
-
-    public enum Power
-    {
-        Speed,
-        RapidFire,
-        Shield,
-        Turning
-    }
 
     public Power power;
 
@@ -20,7 +20,7 @@ public class PowerUp : MonoBehaviour
         print("Colliding with: " + collision);
         if (collision.gameObject.tag == "Player")
         {
-
+            collision.GetComponent<PlaneController>().ReceiverPower(power);
 
             Destroy(gameObject);
         }
@@ -30,6 +30,7 @@ public class PowerUp : MonoBehaviour
     {
         //if(power)
     }
+
     // Update is call1ed once per frame
     void Update()
     {
