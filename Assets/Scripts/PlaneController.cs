@@ -5,6 +5,9 @@ public class PlaneController : MonoBehaviour
     [SerializeField]
     PlaneInfo planeInfo;
 
+    [SerializeField]
+    Shooting shooting;
+
     public new Rigidbody2D rigidbody2D;
 
     string axisVertical = "Vertical";
@@ -31,19 +34,43 @@ public class PlaneController : MonoBehaviour
     
         rigidbody2D.rotation += -horizontal * planeInfo.turningSpeed;
         Vector2 speed = rigidbody2D.velocity = rigidbody2D.transform.up * planeInfo.velocity;
+        float currentVelocity = planeInfo.velocity;
         if (Input.GetKey(brake))
         {
             planeInfo.velocity = 1.3f;
         }
         else
         {
-            planeInfo.velocity = 3;
+            planeInfo.velocity = currentVelocity;
         }
         print(vertical);
 
 
 
 
+    }
+
+    public void ReceiverPower(Power power)
+    {
+        switch (power)
+        {
+            case Power.Speed:
+                planeInfo.velocity = 6;
+                break;
+            case Power.RapidFire:
+                print("Rapid");
+                shooting.fireSpeed = 0.08f;
+                break;
+            case Power.Shield:
+
+                break;
+            case Power.Turning:
+                planeInfo.turningSpeed = 4;
+                break;
+            default:
+                break;
+        }
+        print(power);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

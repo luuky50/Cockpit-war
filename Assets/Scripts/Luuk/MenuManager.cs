@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Thom");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void SettingsMenu()
