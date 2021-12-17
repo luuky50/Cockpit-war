@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Border
       objectReference: {fileID: 0}
+    - target: {fileID: 421270567998176055, guid: 38f7765b4a7a33940b53304132c8d4d1, type: 3}
+      propertyPath: m_TagString
+      value: Border
+      objectReference: {fileID: 0}
     - target: {fileID: 1782571255876347312, guid: 38f7765b4a7a33940b53304132c8d4d1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -606,6 +610,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &899594589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421270567998176055, guid: 38f7765b4a7a33940b53304132c8d4d1, type: 3}
+  m_PrefabInstance: {fileID: 54406638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!19719996 &899594593
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899594589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &943437499
 GameObject:
   m_ObjectHideFlags: 0
