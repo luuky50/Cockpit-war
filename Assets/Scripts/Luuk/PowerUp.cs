@@ -14,14 +14,16 @@ public class PowerUp : MonoBehaviour
 {
 
     public Power power;
+    [SerializeField]
+    private int expireTime;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Colliding with: " + collision);
         if (collision.gameObject.tag == "Player")
         {
-            collision.GetComponent<PlaneController>().ReceiverPower(power);
-
+            PlaneController planeController = collision.GetComponent<PlaneController>();
+            planeController.ReceivePower(power, expireTime);
             Destroy(gameObject);
         }
     }

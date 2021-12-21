@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlaneController : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlaneController : MonoBehaviour
 
     public new Rigidbody2D rigidbody2D;
 
+    float currentVelocity;
     string axisVertical = "Vertical";
     string axisHorizontal = "Horizontal";
     KeyCode brake = KeyCode.S;
@@ -17,6 +19,7 @@ public class PlaneController : MonoBehaviour
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        currentVelocity = planeInfo.velocity;
     }
 
     void FixedUpdate()
@@ -34,7 +37,7 @@ public class PlaneController : MonoBehaviour
     
         rigidbody2D.rotation += -horizontal * planeInfo.turningSpeed;
         Vector2 speed = rigidbody2D.velocity = rigidbody2D.transform.up * planeInfo.velocity;
-        float currentVelocity = planeInfo.velocity;
+      
         if (Input.GetKey(brake))
         {
             planeInfo.velocity = 1.3f;
@@ -43,15 +46,16 @@ public class PlaneController : MonoBehaviour
         {
             planeInfo.velocity = currentVelocity;
         }
-        print(vertical);
 
 
 
 
     }
 
-    public void ReceiverPower(Power power)
+
+    public void ReceivePower(Power power, int expireTime)
     {
+        StartCoroutine(ExpirePower(power, expireTime));
         switch (power)
         {
             case Power.Speed:
@@ -70,7 +74,31 @@ public class PlaneController : MonoBehaviour
             default:
                 break;
         }
-        print(power);
+    }
+
+    public IEnumerator ExpirePower(Power power, int seconds)
+    {
+        print("Waiting");
+        yield return new WaitForSeconds(seconds);
+        print("Expire");
+        switch (power)
+        {
+            case Power.Speed:
+                planeInfo.velocity = 3;
+                break;
+            case Power.RapidFire:
+                shooting.fireSpeed = 0.15f;
+                break;
+            case Power.Shield:
+
+                break;
+            case Power.Turning:
+                planeInfo.turningSpeed = 2;
+                break;
+            default:
+                break;
+        }
+        yield return null;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
