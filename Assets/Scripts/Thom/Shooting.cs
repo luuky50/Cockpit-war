@@ -11,7 +11,8 @@ public class Shooting : MonoBehaviour
     public float bulletForce;
     public float fireSpeed;
     public float canFire;
-    
+
+    public AudioClip shootClip;
 
     // Update is called once per frame
     void Update()
@@ -36,6 +37,10 @@ public class Shooting : MonoBehaviour
         GameObject bullet2 = Instantiate(bulletPreFab, firePoint2.position, firePoint2.rotation);
         Rigidbody2D rigidbody2D2 = bullet2.GetComponent<Rigidbody2D>();
         rigidbody2D2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
+
+        
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(shootClip, 0.1f);
 
     }
 }
