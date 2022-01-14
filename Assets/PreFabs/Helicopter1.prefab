@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2537811355479041653
 Transform:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ Transform:
   m_Children:
   - {fileID: 2537811355802170643}
   - {fileID: 2537811355360700544}
+  - {fileID: 4464392569331740134}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,6 +153,7 @@ MonoBehaviour:
   planeInfo: {fileID: 2537811355479041659}
   shooting: {fileID: 0}
   rigidbody2D: {fileID: 0}
+  shield: {fileID: 6354775270927734337}
 --- !u!50 &2537811355479041657
 Rigidbody2D:
   serializedVersion: 4
@@ -233,6 +235,7 @@ MonoBehaviour:
   health: 10
   currentHealth: 0
   respawnPoint: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!95 &7307444086667373599
 Animator:
   serializedVersion: 3
@@ -281,4 +284,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2537811355479041653}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6354775270927734337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4464392569331740134}
+  m_Layer: 0
+  m_Name: Shield (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4464392569331740134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354775270927734337}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.2027497, y: -0.55450934, z: -0.31835696}
+  m_LocalScale: {x: 1.9230769, y: 1.9230769, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2537811355479041653}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

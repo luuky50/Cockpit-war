@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1867631064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867631065}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867631065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867631064}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.033937, y: -1.9896554, z: -0.31835696}
+  m_LocalScale: {x: 6.25, y: 6.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2251699039655790762}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2251699039123282893
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,7 +82,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2251699039655790762
 Transform:
   m_ObjectHideFlags: 0
@@ -66,6 +96,7 @@ Transform:
   m_Children:
   - {fileID: 2251699039123282892}
   - {fileID: 5502038082109994075}
+  - {fileID: 1867631065}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +182,7 @@ MonoBehaviour:
   planeInfo: {fileID: 2251699039655790756}
   shooting: {fileID: 0}
   rigidbody2D: {fileID: 0}
+  shield: {fileID: 1867631064}
 --- !u!50 &2251699039655790758
 Rigidbody2D:
   serializedVersion: 4
@@ -232,6 +264,7 @@ MonoBehaviour:
   health: 10
   currentHealth: 0
   respawnPoint: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!1 &5502038082109994074
 GameObject:
   m_ObjectHideFlags: 0

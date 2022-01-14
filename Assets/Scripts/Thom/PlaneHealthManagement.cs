@@ -9,6 +9,7 @@ public class PlaneHealthManagement : MonoBehaviour
     [SerializeField]
     private int currentHealth;
     public Transform respawnPoint;
+    public GameObject explosion;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlaneHealthManagement : MonoBehaviour
             currentHealth = 10;
             gameObject.transform.position = respawnPoint.transform.position;
             puntentelling.AddPoint();
+            Instantiate(explosion, transform.position, Quaternion.identity);
         }
     }
 
