@@ -11,6 +11,8 @@ public class PlaneController : MonoBehaviour
 
     public new Rigidbody2D rigidbody2D;
 
+    public GameObject shield;
+
     float currentVelocity;
     string axisVertical = "Vertical";
     string axisHorizontal = "Horizontal";
@@ -71,17 +73,17 @@ public class PlaneController : MonoBehaviour
         switch (power)
         {
             case Power.Speed:
-                currentVelocity = 6;
+                currentVelocity += 3;
                 break;
             case Power.RapidFire:
                 print("Rapid");
-                shooting.fireSpeed = 0.08f;
+                shooting.fireSpeed -= 0.08f;
                 break;
             case Power.Shield:
-
+                shield.SetActive(true);
                 break;
             case Power.Turning:
-                planeInfo.turningSpeed = 3;
+                planeInfo.turningSpeed += 1.5f;
                 break;
             default:
                 break;
@@ -96,16 +98,16 @@ public class PlaneController : MonoBehaviour
         switch (power)
         {
             case Power.Speed:
-                currentVelocity = 3;
+                currentVelocity -= 3;
                 break;
             case Power.RapidFire:
-                shooting.fireSpeed = 0.15f;
+                shooting.fireSpeed += 0.15f;
                 break;
             case Power.Shield:
-
+                print("Shield can't expire");
                 break;
             case Power.Turning:
-                planeInfo.turningSpeed = 2;
+                planeInfo.turningSpeed -= 1.5f;
                 break;
             default:
                 break;

@@ -28,8 +28,16 @@ public class PlaneHealthManagement : MonoBehaviour
         }
     }
 
-    public void HurtEnemy(int damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        PlaneController planeController = GetComponent<PlaneController>();
+        if (!planeController.shield.activeSelf)
+        {
+            currentHealth -= damage;
+        }
+        else
+        {
+            planeController.shield.SetActive(false);
+        }
     }
 }
