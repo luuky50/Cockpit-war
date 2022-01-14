@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Puntentelling>().HurtEnemy(damageToGive);
+            other.gameObject.GetComponent<PlaneHealthManagement>().HurtEnemy(damageToGive);
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "Border")
