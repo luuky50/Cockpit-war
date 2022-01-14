@@ -216,6 +216,7 @@ MonoBehaviour:
   bulletForce: 25
   fireSpeed: 0.2
   canFire: 1
+  shootClip: {fileID: 0}
 --- !u!114 &5066932575929279687
 MonoBehaviour:
   m_ObjectHideFlags: 0

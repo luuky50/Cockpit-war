@@ -12,7 +12,7 @@ public enum Power
 
 public class PowerUp : MonoBehaviour
 {
-
+    public Sprite[] sprite;
     public Power power;
     [SerializeField]
     private int expireTime;
@@ -28,9 +28,11 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        //if(power)
+        int randomValue = Random.Range(0, 4);
+        power = (Power)randomValue;
+        GetComponent<SpriteRenderer>().sprite = sprite[randomValue];
     }
 
     // Update is call1ed once per frame

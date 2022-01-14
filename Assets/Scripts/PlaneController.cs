@@ -52,6 +52,18 @@ public class PlaneController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            SwitchPlanes();
+        }
+    }
+
+    public void SwitchPlanes()
+    {
+
+    }
 
     public void ReceivePower(Power power, int expireTime)
     {
@@ -59,7 +71,7 @@ public class PlaneController : MonoBehaviour
         switch (power)
         {
             case Power.Speed:
-                planeInfo.velocity = 6;
+                currentVelocity = 6;
                 break;
             case Power.RapidFire:
                 print("Rapid");
@@ -69,7 +81,7 @@ public class PlaneController : MonoBehaviour
 
                 break;
             case Power.Turning:
-                planeInfo.turningSpeed = 4;
+                planeInfo.turningSpeed = 3;
                 break;
             default:
                 break;
@@ -84,7 +96,7 @@ public class PlaneController : MonoBehaviour
         switch (power)
         {
             case Power.Speed:
-                planeInfo.velocity = 3;
+                currentVelocity = 3;
                 break;
             case Power.RapidFire:
                 shooting.fireSpeed = 0.15f;

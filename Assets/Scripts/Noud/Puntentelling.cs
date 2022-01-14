@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Puntentelling : MonoBehaviour
 {
-    
+    public int player;
     public int health;
     [SerializeField]
     private int currentHealth;
     public Transform respawnPoint;
+    [SerializeField]
     private int puntenPlane;
+
+    [SerializeField]
+    private Text text;
 
     void Start()
     {
@@ -30,6 +35,7 @@ public class Puntentelling : MonoBehaviour
             currentHealth = 10;
             gameObject.transform.position = respawnPoint.transform.position;
             puntenPlane++;
+            text.text = "Player" + player + ": "+ puntenPlane.ToString();
         }
     }
 
