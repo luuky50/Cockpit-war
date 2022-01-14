@@ -40,7 +40,7 @@ public class PlaneController : MonoBehaviour
       
         if (Input.GetKey(brake))
         {
-            planeInfo.velocity = 1.3f;
+            planeInfo.velocity = currentVelocity - 1.4f;
         }
         else
         {
