@@ -31,6 +31,10 @@ public class DeathmatchTimer : MonoBehaviour
                 timerIsRunning = false;
             }
         }
+        if (timeRemaining <= 0)
+        {
+            Application.Quit();
+        }
     }
 
     void DisplayTime(float timeToDisplay)

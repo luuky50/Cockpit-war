@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaneHealthManagement : MonoBehaviour
 {
+    Puntentelling puntentelling;
     public int health;
     [SerializeField]
     private int currentHealth;
@@ -12,6 +13,7 @@ public class PlaneHealthManagement : MonoBehaviour
     void Start()
     {
         currentHealth = health;
+        puntentelling = GetComponent<Puntentelling>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class PlaneHealthManagement : MonoBehaviour
             //Destroy(gameObject);
             currentHealth = 10;
             gameObject.transform.position = respawnPoint.transform.position;
+            puntentelling.AddPoint();
         }
     }
 
