@@ -854,6 +854,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &194590392 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5194096710323770657, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+  m_PrefabInstance: {fileID: 3277603335929715177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &289466054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3504,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 533311665331112899, guid: f212f58583179704386745003a1db690, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 573577840992868836, guid: f212f58583179704386745003a1db690, type: 3}
       propertyPath: respawnPoint
       value: 
@@ -3560,9 +3569,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588520905699263969, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028086411861103823, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 194590392}
+    - target: {fileID: 1028086411861103823, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 7400000, guid: 438a14ff66e3dd648a88c78d15c5e9cc, type: 2}
+    - target: {fileID: 1028086411861103823, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1910988237}
     - target: {fileID: 1028086412715368257, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
       propertyPath: m_Name
       value: Helicopter2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028086412715368257, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1028086412715368267, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
       propertyPath: m_RootOrder
@@ -3608,6 +3637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5194096710323770657, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c58d8d51ba7c70044bc7a1c5f447c03a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd206626d7047d47af05d9836f776ba, type: 3}
 --- !u!1001 &4331351259009107806
@@ -3617,6 +3650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1970030173890662046, guid: fb7f20fdcd4bfe84cae9f4302f9e9237, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4331351260591409818, guid: fb7f20fdcd4bfe84cae9f4302f9e9237, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3682,6 +3719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Straaljager2
       objectReference: {fileID: 0}
+    - target: {fileID: 5023978274068814945, guid: 4da31e2f483789f4a91bc3652ec8a2d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5023978274068814946, guid: 4da31e2f483789f4a91bc3652ec8a2d6, type: 3}
       propertyPath: respawnPoint
       value: 
@@ -3728,6 +3769,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5023978274068814953, guid: 4da31e2f483789f4a91bc3652ec8a2d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647432922442339913, guid: 4da31e2f483789f4a91bc3652ec8a2d6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3787,6 +3832,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helicopter1
       objectReference: {fileID: 0}
+    - target: {fileID: 2537811355479041663, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537811355699441137, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537811355699441137, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 7400000, guid: 438a14ff66e3dd648a88c78d15c5e9cc, type: 2}
+    - target: {fileID: 2537811355699441137, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1910988237}
+    - target: {fileID: 6354775270927734337, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9afa7bda43e6514eae9988cc0d953bd, type: 3}
 --- !u!1001 &7401292782893782657
@@ -3796,9 +3861,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867631064, guid: c875a1cba52847d4e9c88ba783269efe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2251699039655790752, guid: c875a1cba52847d4e9c88ba783269efe, type: 3}
       propertyPath: m_Name
       value: Straaljager1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251699039655790752, guid: c875a1cba52847d4e9c88ba783269efe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2251699039655790753, guid: c875a1cba52847d4e9c88ba783269efe, type: 3}
       propertyPath: respawnPoint
