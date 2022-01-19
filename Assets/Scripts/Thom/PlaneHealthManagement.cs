@@ -9,7 +9,8 @@ public class PlaneHealthManagement : MonoBehaviour
     [SerializeField]
     private int currentHealth;
     public Transform respawnPoint;
-    public GameObject explosion;
+    public AnimationClip explosion;
+    public Animator animator;
 
     void Start()
     {
@@ -20,14 +21,18 @@ public class PlaneHealthManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.Play("explosion");
+
         if (currentHealth<=0)
         {
             //Destroy(gameObject);
+            
             currentHealth = 10;
             gameObject.transform.position = respawnPoint.transform.position;
             puntentelling.AddPoint();
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            
         }
+    
     }
 
     public void TakeDamage(int damage)
@@ -36,6 +41,7 @@ public class PlaneHealthManagement : MonoBehaviour
         if (!planeController.shield.activeSelf)
         {
             currentHealth -= damage;
+           
         }
         else
         {
