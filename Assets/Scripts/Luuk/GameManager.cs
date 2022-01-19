@@ -9,12 +9,20 @@ public enum GameMode
 }
 public class GameManager : MonoBehaviour
 {
-    GameMode currentGameMode = new GameMode();
+    public GameObject plane1;
+    public GameObject plane2;
+    public GameObject Map;
 
+    GameMode currentGameMode = new GameMode();
+    public void SelectMap()
+    {
+        Instantiate(Map);
+    }
     // Start is called before the first frame update
     void Start()
     {
         
+      
     }
 
 
