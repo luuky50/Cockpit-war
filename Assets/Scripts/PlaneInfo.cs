@@ -7,6 +7,7 @@ public class PlaneInfo : MonoBehaviour
     public string planeName;
     public float velocity;
     public float turningSpeed;
+    public float fireSpeed;
     public bool isPlayer2;
 
 

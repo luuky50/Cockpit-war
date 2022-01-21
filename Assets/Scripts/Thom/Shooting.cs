@@ -9,10 +9,12 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPreFab;
 
     public float bulletForce;
-    public float fireSpeed;
     public float canFire;
 
     public AudioClip shootClip;
+
+    public PlaneInfo planeInfo;
+
 
     // Update is called once per frame
     void Update()
@@ -21,11 +23,11 @@ public class Shooting : MonoBehaviour
         if (!planeInfo.isPlayer2 && Input.GetKey(KeyCode.W) && Time.time > canFire)
         {
             Shoot();
-            canFire = Time.time + fireSpeed;
+            canFire = Time.time + planeInfo.fireSpeed;
         } else if (planeInfo.isPlayer2 && Input.GetKey(KeyCode.UpArrow) && Time.time > canFire)
         {
             Shoot();
-            canFire = Time.time + fireSpeed;
+            canFire = Time.time + planeInfo.fireSpeed;
         }
     }
 
@@ -40,8 +42,15 @@ public class Shooting : MonoBehaviour
 
         
         AudioSource audio = GetComponent<AudioSource>();
-        audio.PlayOneShot(shootClip, 0.1f);
+        audio.clip = shootClip;
+        audio.Play();
 
+    }
+
+    public void IcreaseFireSpeed()
+    {
+        print("LOL");
+        planeInfo.fireSpeed = 0.08f;
     }
 }
 

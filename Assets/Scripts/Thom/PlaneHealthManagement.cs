@@ -1,6 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlaneHealthManagement : MonoBehaviour
 {
@@ -8,32 +9,28 @@ public class PlaneHealthManagement : MonoBehaviour
     public int health;
     [SerializeField]
     private int currentHealth;
+    public Slider healthSlider;
+    public TMP_Text playerNumber;
     public Transform respawnPoint;
-    public AnimationClip explosion;
-    public Animator animator;
+    public GameObject explosionPreFab;
+    bool hasDied = false;
 
     void Start()
     {
         currentHealth = health;
-        puntentelling = GetComponent<Puntentelling>();
+        puntentelling = FindObjectOfType<Puntentelling>();
+        healthSlider.maxValue = health;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Death()
     {
-        animator.Play("explosion");
-
-        if (currentHealth<=0)
-        {
-            //Destroy(gameObject);
-            
-            currentHealth = 10;
-            gameObject.transform.position = respawnPoint.transform.position;
-            puntentelling.AddPoint();
-            
-        }
-    
+        hasDied = true;
+        PlaneInfo planeInfo = GetComponent<PlaneInfo>();
+        puntentelling.AddPoint(!planeInfo.isPlayer2);
+        print("Respawn: " + gameObject.name);
+        GameManager.instance.Respawn(playerNumber.text, gameObject);
     }
+
 
     public void TakeDamage(int damage)
     {
@@ -41,11 +38,22 @@ public class PlaneHealthManagement : MonoBehaviour
         if (!planeController.shield.activeSelf)
         {
             currentHealth -= damage;
-           
+            if (currentHealth <= 0 && !hasDied)
+            {
+                Instantiate(explosionPreFab, transform.position, transform.rotation);
+                Death();
+            }
+            UpdateHealthSlider(damage);
+
         }
         else
         {
             planeController.shield.SetActive(false);
         }
+    }
+
+    public void UpdateHealthSlider(int damage)
+    {
+        healthSlider.value += damage;
     }
 }

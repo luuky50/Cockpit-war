@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlaneSelecter : MonoBehaviour
 {
-    public GameManager gameManager;
     public bool isPlayer2 = false;
 
     public void SelectPlane(GameObject plane)
@@ -12,11 +11,11 @@ public class PlaneSelecter : MonoBehaviour
 
         if (isPlayer2 == true)
         {
-            gameManager.plane2 = plane;
+            GameManager.instance.plane2 = plane;
         }
         else
         {
-            gameManager.plane1 = plane;
+            GameManager.instance.plane1 = plane;
 
             isPlayer2 = true;
         }
@@ -28,7 +27,6 @@ public class PlaneSelecter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          
     }
 
     // Update is called once per frame

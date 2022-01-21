@@ -8,22 +8,42 @@ public class Puntentelling : MonoBehaviour
     
 
     public Transform respawnPoint;
-    private int puntenPlane;
-    public Text pointTekst;
+    public int puntenPlane1;
+    public int puntenPlane2;
+    public Text pointTekst1;
+    public Text pointTekst2;
     void Start()
     {
         
-        puntenPlane = 0;
-        
+        puntenPlane1 = 0;
+        puntenPlane2 = 0;
+
     }
 
     // Update is called once per frame
    
-    public void AddPoint()
+    public void AddPoint(bool isPlayer2)
     {
-        puntenPlane++;
-        pointTekst.text = "Amount of points " + puntenPlane.ToString();
+        if (!isPlayer2)
+        {
+            puntenPlane1++;
+            pointTekst1.text = "Player 1: " + puntenPlane1.ToString();
+        }
+        else
+        {
+            puntenPlane2++;
+            pointTekst2.text = "Player 2: " + puntenPlane2.ToString();
+        }
     }
+
+    public void ResetPoints()
+    {
+        puntenPlane1 = 0;
+        puntenPlane2 = 0;
+        pointTekst1.text = "Player 1: " + puntenPlane1.ToString();
+        pointTekst2.text = "Player 2: " + puntenPlane2.ToString();
+    }
+
         
         
 

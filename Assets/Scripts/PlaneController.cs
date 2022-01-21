@@ -6,8 +6,7 @@ public class PlaneController : MonoBehaviour
     [SerializeField]
     PlaneInfo planeInfo;
 
-    [SerializeField]
-    Shooting shooting;
+    public Shooting shooting;
 
     public new Rigidbody2D rigidbody2D;
 
@@ -17,6 +16,7 @@ public class PlaneController : MonoBehaviour
     string axisVertical = "Vertical";
     string axisHorizontal = "Horizontal";
     KeyCode brake = KeyCode.S;
+
 
     void Awake()
     {
@@ -36,10 +36,10 @@ public class PlaneController : MonoBehaviour
 
         float vertical = Input.GetAxis(axisVertical);
         float horizontal = Input.GetAxis(axisHorizontal) * planeInfo.turningSpeed;
-    
+
         rigidbody2D.rotation += -horizontal * planeInfo.turningSpeed;
         Vector2 speed = rigidbody2D.velocity = rigidbody2D.transform.up * planeInfo.velocity;
-      
+
         if (Input.GetKey(brake))
         {
             planeInfo.velocity = currentVelocity - 1.4f;
@@ -56,16 +56,13 @@ public class PlaneController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            SwitchPlanes();
+            print("Increasing fire speed");
+            shooting.IcreaseFireSpeed();
         }
     }
 
-    public void SwitchPlanes()
-    {
-
-    }
 
     public void ReceivePower(Power power, int expireTime)
     {
@@ -77,7 +74,7 @@ public class PlaneController : MonoBehaviour
                 break;
             case Power.RapidFire:
                 print("Rapid");
-                shooting.fireSpeed -= 0.08f;
+                planeInfo.fireSpeed -= 0.08f;
                 break;
             case Power.Shield:
                 shield.SetActive(true);
@@ -101,7 +98,7 @@ public class PlaneController : MonoBehaviour
                 currentVelocity -= 3;
                 break;
             case Power.RapidFire:
-                shooting.fireSpeed += 0.15f;
+                planeInfo.fireSpeed += 0.08f;
                 break;
             case Power.Shield:
                 print("Shield can't expire");
@@ -115,19 +112,20 @@ public class PlaneController : MonoBehaviour
         yield return null;
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        print("Colliding with tag:" + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Player" && !shield.activeSelf)
         {
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            PlaneHealthManagement planeHealth = GetComponent<PlaneHealthManagement>();
+            Instantiate(planeHealth.explosionPreFab, transform.position, transform.rotation);
+            GameManager.instance.Respawn(planeHealth.playerNumber.text, gameObject);
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        else if(collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            GameManager.instance.puntentelling.AddPoint(planeInfo.isPlayer2);
+            shield.SetActive(false);
         }
     }
 }

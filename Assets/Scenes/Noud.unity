@@ -2723,8 +2723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   currentHealth: 0
+  healthSlider: {fileID: 0}
   respawnPoint: {fileID: 1789583270}
-  explosion: {fileID: 0}
+  explosionPreFab: {fileID: 0}
 --- !u!114 &502508076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,8 +4862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   currentHealth: 0
+  healthSlider: {fileID: 0}
   respawnPoint: {fileID: 1789583270}
-  explosion: {fileID: 0}
+  explosionPreFab: {fileID: 0}
 --- !u!114 &1043032494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6434,8 +6436,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   currentHealth: 0
+  healthSlider: {fileID: 0}
   respawnPoint: {fileID: 1789583270}
-  explosion: {fileID: 0}
+  explosionPreFab: {fileID: 0}
 --- !u!82 &1278925203
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9060,8 +9063,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   currentHealth: 0
+  healthSlider: {fileID: 0}
   respawnPoint: {fileID: 1789583270}
-  explosion: {fileID: 0}
+  explosionPreFab: {fileID: 0}
 --- !u!82 &1937344353
 AudioSource:
   m_ObjectHideFlags: 0

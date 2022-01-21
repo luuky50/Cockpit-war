@@ -8,9 +8,11 @@ public class DeathmatchTimer : MonoBehaviour
     public float timeRemaining = 10;
     public bool timerIsRunning = false;
     public Text timeText;
+    float timeTemp;
 
     private void Start()
     {
+        timeTemp = timeRemaining;
         // Starts the timer automatically
         timerIsRunning = true;
     }
@@ -19,21 +21,21 @@ public class DeathmatchTimer : MonoBehaviour
     {
         if (timerIsRunning)
         {
-            if (timeRemaining > 0)
+            if (timeTemp > 0)
             {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
+                timeTemp -= Time.deltaTime;
+                DisplayTime(timeTemp);
             }
             else
             {
                 Debug.Log("Time has run out!");
-                timeRemaining = 0;
+                timeTemp = 0;
                 timerIsRunning = false;
             }
         }
-        if (timeRemaining <= 0)
+        if (timeTemp <= 0)
         {
-            Application.Quit();
+            GameManager.instance.EndGame();
         }
     }
 
@@ -46,6 +48,14 @@ public class DeathmatchTimer : MonoBehaviour
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    public void ResetTime()
+    {
+        timeTemp = timeRemaining;
+        DisplayTime(timeTemp);
+        timerIsRunning = true;
+    }
+
 }
 
 

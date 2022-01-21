@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -15,11 +17,16 @@ public class MenuManager : MonoBehaviour
     private GameObject mapMenu;
     [SerializeField]
     private GameObject planeMenuPlayer2;
+    [SerializeField]
+    private GameObject endMenu;
+    public TMP_Text winnerText;
 
+    public Slider timeSlider;
+    public Slider healthSlider;
 
-    public void StartGame()
+    public void LoadScene(string name)
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(name);
     }
 
     public void SettingsMenu()
@@ -42,12 +49,31 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void ShowEndMenu()
+    {
+        endMenu.SetActive(true);
+    }
+    public void hideEndMenu()
+    {
+        GameManager.instance.RestartGame();
+        endMenu.SetActive(false);
+    }
+
     public void DisableMenus()
     {
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        Instantiate(gameManager.plane1);
-        Instantiate(gameManager.plane2);
-
         menu.SetActive(false);
     }
+
+    public void UpdateTimeText(TMP_Text text)
+    {
+        text.text = timeSlider.value.ToString();
+        GameManager.instance.roundTime = timeSlider.value;
+    }
+
+    public void UpdateHealthText(TMP_Text text)
+    {
+        text.text = healthSlider.value.ToString();
+        GameManager.instance.startingHealth = (int)healthSlider.value;
+    }
+
 }
