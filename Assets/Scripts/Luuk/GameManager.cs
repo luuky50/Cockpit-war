@@ -110,11 +110,13 @@ public class GameManager : SingletonComponent<GameManager>
         if (playerNumber == "1" && spawnedPlanes.Count < 2)
         {
             GameObject newPlane1 = Instantiate(GameManager.instance.plane1, newSpawnPoint.transform.position, transform.rotation);
+            newPlane1.GetComponent<PlaneHealthManagement>().health = startingHealth;
             spawnedPlanes.Add(newPlane1);
         }
         else if(spawnedPlanes.Count < 2)
         {
             GameObject newPlane2 = Instantiate(GameManager.instance.plane2, newSpawnPoint.transform.position, transform.rotation);
+            newPlane2.GetComponent<PlaneHealthManagement>().health = startingHealth;
             spawnedPlanes.Add(newPlane2);
         }
 
@@ -158,8 +160,10 @@ public class GameManager : SingletonComponent<GameManager>
         deathmatchTimer.ResetTime();
         puntentelling.ResetPoints();
         GameObject newPlane1 = Instantiate(plane1);
+        newPlane1.GetComponent<PlaneHealthManagement>().health = startingHealth;
         spawnedPlanes.Add(newPlane1);
         GameObject newPlane2 = Instantiate(plane2);
+        newPlane2.GetComponent<PlaneHealthManagement>().health = startingHealth;
         spawnedPlanes.Add(newPlane2);
         isNewGame = false;
     }
